@@ -1,3 +1,3 @@
 require './app'
 
-App.run!
+run App.new
