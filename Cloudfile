@@ -1,0 +1,11 @@
+smefju-sinatra-application:
+  ruby_version: 2.2.1
+  environment: production
+  domains:
+    - smefju-sinatra-application.shellyapp.com
+  servers:
+    app1:
+      size: large
+      puma: 1
+      databases:
+        - postgresql
