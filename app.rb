@@ -47,6 +47,6 @@ class App < Sinatra::Base
       body: params["body"],
       created_at: DateTime.now)
 
-    redirect '/posts'
+    redirect '/'
   end
 end
