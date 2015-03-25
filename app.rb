@@ -16,11 +16,15 @@ class App < Sinatra::Base
 
   autoload :Post, "./models/post"
 
+  def self.postgresql_connection_string
+    ENV["DATABASE_URL"] || "postgres://#{ENV["POSTGRESQL_USER"]}:#{ENV["POSTGRESQL_PASSWORD"]}@#{ENV["POSTGRESQL_HOST"]}:5432/#{ENV["POSTGRESQL_DATABASE"]}"
+  end
+
   configure do
     set :root, File.dirname(__FILE__)
     set :partial_template_engine, :slim
     set :server, :puma
-    set :database, "postgres://#{ENV["POSTGRESQL_USER"]}:#{ENV["POSTGRESQL_PASSWORD"]}@#{ENV["POSTGRESQL_HOST"]}:5432/#{ENV["POSTGRESQL_DATABASE"]}"
+    set :database, postgresql_connection_string
   end
 
   before do
@@ -57,7 +61,7 @@ class App < Sinatra::Base
   end
 
   get "/posts" do
-    @posts = Post.limit(15)
+    @posts = Post.order(Sequel.lit("RANDOM()")).limit(15)
     slim :posts, layout: :application
   end
 
