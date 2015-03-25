@@ -1,4 +1,4 @@
 - @posts.each do |post|
   h3= post.title
   h5= post.created_at
-  p= post.body
+  p= post.body[0..512]
