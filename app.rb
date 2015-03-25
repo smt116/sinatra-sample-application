@@ -16,15 +16,11 @@ class App < Sinatra::Base
 
   autoload :Post, "./models/post"
 
-  def self.postgresql_connection_string
-    ENV["DATABASE_URL"] || "postgres://#{ENV["POSTGRESQL_USER"]}:#{ENV["POSTGRESQL_PASSWORD"]}@#{ENV["POSTGRESQL_HOST"]}:5432/#{ENV["POSTGRESQL_DATABASE"]}"
-  end
-
   configure do
     set :root, File.dirname(__FILE__)
     set :partial_template_engine, :slim
     set :server, :puma
-    set :database, postgresql_connection_string
+    set :database, ENV["DATABASE_URL"] || "postgres://#{ENV["POSTGRESQL_USER"]}:#{ENV["POSTGRESQL_PASSWORD"]}@#{ENV["POSTGRESQL_HOST"]}:5432/#{ENV["POSTGRESQL_DATABASE"]}"
   end
 
   before do

@@ -13,3 +13,7 @@ gem 'dotenv'
 
 gem 'puma'
 gem 'slim'
+
+group :development do
+  gem 'pry'
+end
