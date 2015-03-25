@@ -5,7 +5,7 @@ smefju-sinatra-application:
     - smefju-sinatra-application.shellyapp.com
   servers:
     app1:
-      size: large
+      size: small
       puma: 1
       databases:
         - postgresql
