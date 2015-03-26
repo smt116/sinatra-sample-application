@@ -11,6 +11,7 @@ gem 'sinatra-assetpack', require: 'sinatra/assetpack'
 gem 'pg'
 gem 'dotenv'
 
+gem 'thin'
 gem 'puma'
 gem 'slim'
 
