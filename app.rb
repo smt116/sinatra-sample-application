@@ -24,7 +24,7 @@ class App < Sinatra::Base
   end
 
   before do
-    Sequel.connect(settings.database)
+    Sequel.connect(settings.database, max_connections: (ENV["MAX_THREADS"] || 16))
   end
 
   assets do
