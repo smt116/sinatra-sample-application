@@ -26,7 +26,7 @@ namespace :db do
     random_char =   ->    { (('a'..'z').to_a + [' ']).sample }
     random_string = ->(n) { Array.new(n) { random_char.call }.join }
 
-    100.times do
+    8000.times do
       title = random_string.call(30)
       body = random_string.call(4096)
       created_at = DateTime.now
