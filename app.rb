@@ -1,10 +1,10 @@
 require "rack"
-
 require "sinatra/base"
 require "sinatra/partial"
 require "sinatra/sequel"
 require "sinatra/assetpack"
 
+require 'jdbc/postgres'
 require "slim"
 require "dotenv"
 
@@ -20,7 +20,7 @@ class App < Sinatra::Base
     set :root, File.dirname(__FILE__)
     set :partial_template_engine, :slim
     set :server, :puma
-    set :database, ENV["DATABASE_URL"] || "postgres://#{ENV["POSTGRESQL_USER"]}:#{ENV["POSTGRESQL_PASSWORD"]}@#{ENV["POSTGRESQL_HOST"]}:5432/#{ENV["POSTGRESQL_DATABASE"]}"
+    set :database, ENV["DATABASE_URL"] || "jdbc:postgresql://#{ENV["POSTGRESQL_HOST"]}/#{ENV["POSTGRESQL_DATABASE"]}?user=#{ENV["POSTGRESQL_USER"]}&password=#{ENV["POSTGRESQL_PASSWORD"]}"
   end
 
   before do

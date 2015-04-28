@@ -1,7 +1,5 @@
 source "https://rubygems.org"
 
-ruby '2.2.1'
-
 gem 'rack'
 gem 'rake'
 
@@ -10,10 +8,9 @@ gem 'sinatra-partial'
 gem 'sinatra-sequel'
 gem 'sinatra-assetpack', require: 'sinatra/assetpack'
 
-gem 'pg'
+gem 'jdbc-postgres'
 gem 'dotenv'
 
-gem 'thin'
 gem 'puma'
 gem 'slim'
 
