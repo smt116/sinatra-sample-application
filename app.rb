@@ -18,6 +18,7 @@ class App < Sinatra::Base
 
   configure do
     set :root, File.dirname(__FILE__)
+    set :static_cache_control, [:public, {:max_age => 86400}]
     set :partial_template_engine, :slim
     set :server, :puma
     set :database, ENV["DATABASE_URL"] || "postgres://#{ENV["POSTGRESQL_USER"]}:#{ENV["POSTGRESQL_PASSWORD"]}@#{ENV["POSTGRESQL_HOST"]}:5432/#{ENV["POSTGRESQL_DATABASE"]}"
@@ -32,7 +33,6 @@ class App < Sinatra::Base
     serve '/images',      from: 'assets/images'
 
     prebuild true
-    expires 86400*365, :public
 
     css :application, '/stylesheets/application.css', [
       '/stylesheets/custom.css',

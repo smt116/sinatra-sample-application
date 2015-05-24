@@ -2,6 +2,11 @@ require 'rake'
 require 'sequel'
 require './app'
 
+APP_FILE = 'app.rb'
+APP_CLASS = 'App'
+
+require 'sinatra/assetpack/rake'
+
 autoload :Post, "./models/post"
 
 namespace :db do
