@@ -56,6 +56,10 @@ class App < Sinatra::Base
     slim :index, layout: :application, locals: { posts_count: Post.count }
   end
 
+  get "/status" do
+    "OK"
+  end
+
   get "/posts" do
     slim :posts, layout: :application, locals: { posts: Post.order(Sequel.lit("RANDOM()")).limit(15) }
   end
