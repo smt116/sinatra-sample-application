@@ -5,3 +5,15 @@
 p {
   margin: 20px 0;
 }
+
+.no-list {
+  list-style: none;
+}
+
+.horizontal-list li {
+  float: left;
+}
+
+footer li {
+  margin: 20px 10px;
+}
