@@ -16,6 +16,8 @@ gem "dotenv"
 gem "puma"
 gem "slim"
 
+gem "bacon"
+
 group :development do
   gem "pry"
 end
