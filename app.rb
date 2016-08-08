@@ -53,7 +53,7 @@ class App < Sinatra::Base
   end
 
   get "/" do
-    slim :index, layout: :application
+    slim :index, layout: :application, locals: { posts_count: Post.count }
   end
 
   get "/posts" do

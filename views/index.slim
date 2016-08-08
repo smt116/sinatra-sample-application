@@ -1,4 +1,12 @@
+hr
+
+== img "/images/salem.gif", class: "img-rounded"
+
 p
   | Today is #{date}. You're visiting this site at #{time}.
 
-== img "/images/salem.gif", class: "img-rounded"
+p
+  - if posts_count
+    | There are <b>#{posts_count} posts</b> in database.
+  - else
+    | There are <b>no posts</b> in database.
