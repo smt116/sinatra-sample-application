@@ -57,15 +57,14 @@ class App < Sinatra::Base
   end
 
   get "/posts" do
-    @posts = Post.order(Sequel.lit("RANDOM()")).limit(15)
-    slim :posts, layout: :application
+    slim :posts, layout: :application, locals: { posts: Post.order(Sequel.lit("RANDOM()")).limit(15) }
   end
 
   post "/posts/new" do
     Post.create(title: params["title"],
-      body: params["body"],
-      created_at: DateTime.now)
+                body: params["body"],
+                created_at: DateTime.now)
 
-    redirect '/'
+    redirect "/"
   end
 end
