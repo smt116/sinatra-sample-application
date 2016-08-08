@@ -18,14 +18,14 @@ class App < Sinatra::Base
 
   configure do
     set :root, File.dirname(__FILE__)
-    set :static_cache_control, [:public, {:max_age => 86400}]
+    set :static_cache_control, [:public, {max_age: 86400}]
     set :partial_template_engine, :slim
     set :server, :puma
     set :database, ENV.fetch("DATABASE_URL")
   end
 
   before do
-    Sequel.connect(settings.database, max_connections: (ENV["MAX_THREADS"] || 16))
+    Sequel.connect(settings.database, max_connections: ENV.fetch("MAX_THREADS", 16).to_i)
   end
 
   assets do
