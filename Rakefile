@@ -13,16 +13,6 @@ namespace :db do
   Sequel.extension :migration
   DB = Sequel.connect(App.settings.database)
 
-  task :setup
-
-  task :create do
-    system("psql -U #{ENV['POSTGRESQL_USER']} -d template1 -c 'CREATE DATABASE \"#{ENV['POSTGRESQL_DATABASE']}\";'")
-  end
-
-  task :drop do
-    system("psql -U #{ENV['POSTGRESQL_USER']} -d template1 -c 'DROP DATABASE \"#{ENV['POSTGRESQL_DATABASE']}\";'")
-  end
-
   task :migrate do
     Sequel::Migrator.run(DB, "db/migrations")
   end
