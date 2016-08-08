@@ -1,20 +1,21 @@
 source "https://rubygems.org"
 
-gem 'rack'
-gem 'rake'
+ruby "2.3.1"
 
-gem 'sinatra'
-gem 'sinatra-partial'
-gem 'sinatra-sequel'
-gem 'sinatra-assetpack', require: 'sinatra/assetpack'
+gem "rack"
+gem "rake"
 
-gem 'pg'
-gem 'dotenv'
+gem "sinatra"
+gem "sinatra-partial"
+gem "sinatra-sequel"
+gem "sinatra-assetpack", require: "sinatra/assetpack"
 
-gem 'thin'
-gem 'puma'
-gem 'slim'
+gem "pg"
+gem "dotenv"
+
+gem "puma"
+gem "slim"
 
 group :development do
-  gem 'pry'
+  gem "pry"
 end
