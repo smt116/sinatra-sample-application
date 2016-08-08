@@ -61,7 +61,7 @@ class App < Sinatra::Base
   end
 
   get "/posts" do
-    slim :posts, layout: :application, locals: { posts: Post.order(Sequel.lit("RANDOM()")).limit(15) }
+    slim :posts, layout: :application, locals: { posts: Post.order(Sequel.lit("RANDOM()")).limit(4) }
   end
 
   post "/posts/new" do
