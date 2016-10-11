@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    bacon (1.2.0)
     coderay (1.1.1)
     dotenv (2.1.1)
     jsmin (1.0.1)
@@ -44,7 +43,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bacon
   dotenv
   pg
   pry
